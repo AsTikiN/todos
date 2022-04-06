@@ -407,4 +407,5 @@ export const CustomMessage = styled.div`
   color: var(--error-color);
   font-family: var(--main-font);
   font-size: 18px;
+  padding-left: 20px
   ` 
