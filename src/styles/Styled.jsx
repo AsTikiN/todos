@@ -162,6 +162,8 @@ export const TodoItem = styled.li`
   color: var(--active-color);
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     box-shadow: 0 3px 6px 1px rgba(0,0,0,.15);
