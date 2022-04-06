@@ -36,19 +36,35 @@ const TodosCreateInput = ({setModalStatus}) => {
   }
 
   const handleInputSuccessClick = (e) => {
-
-    console.log(generateTodoId(todoList));
-
     appendTodoItem({id: generateTodoId(todoList), title: inputValue, status: "In Progress" });
 
     setInputValue("");
     setModalStatus(false);
   }
 
+  const handleInputKeyUp = (e) => {
+    console.log(e);
+    if(e.code === "Enter") {
+      appendTodoItem({id: generateTodoId(todoList), title: inputValue, status: "In Progress" });
+
+      setInputValue("");
+      setModalStatus(false);
+    }
+    if(e.code === "Escape") {
+      setModalStatus(false);
+    }
+  }
+
   return ( 
     <TodosCreateInputWrapper onClick={handleOverAreaClick}>
       <div style={{position: "relative"}}>
-        <TodosCreateInputStyled placeholder='Write your new post' value={inputValue} onChange={handleInputChange}/>
+        <TodosCreateInputStyled 
+          placeholder='Write your new post' 
+          value={inputValue} 
+          onChange={handleInputChange} 
+          onKeyUp = {handleInputKeyUp}
+          autoFocus={true}
+        />
         {
           inputValue 
           && <>
