@@ -10,6 +10,7 @@ const TodosCreateInput = ({setModalStatus}) => {
   const appendTodoItem = bindActionCreators(appendTodo, dispatch);
   const {currentFilter, items: todoList} = useSelector(state => state.todoReducer);
 
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   }
@@ -30,10 +31,14 @@ const TodosCreateInput = ({setModalStatus}) => {
   const generateTodoId = (todos) => {
     let todoIdList = todos.map(todo => todo.id); 
 
-    return todoIdList === [] ? 1 : Math.max(...todoIdList) + 1;
+    
+    return todoIdList.length === 0 ? 1 : Math.max(...todoIdList) + 1;
   }
 
   const handleInputSuccessClick = (e) => {
+
+    console.log(generateTodoId(todoList));
+
     appendTodoItem({id: generateTodoId(todoList), title: inputValue, status: "In Progress" });
 
     setInputValue("");
