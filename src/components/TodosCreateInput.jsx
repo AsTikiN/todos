@@ -30,7 +30,7 @@ const TodosCreateInput = ({setModalStatus}) => {
   const generateTodoId = (todos) => {
     let todoIdList = todos.map(todo => todo.id); 
 
-    return Math.max(...todoIdList) + 1;
+    return Math.max(...todoIdList) + 1 || 1;
   }
 
   const handleInputSuccessClick = (e) => {
