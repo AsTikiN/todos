@@ -18,7 +18,9 @@ const TodoItem = ({item, index: elementIndex}) => {
     e.stopPropagation();
     setActiveTodo(!activeTodo);
 
+    console.log(item.status, elementIndex);
     let status = item.status === "In Progress" ? "Completed" : "In Progress";
+    console.log(status)
     changeTodoStatus({index: elementIndex, status});
   }
 

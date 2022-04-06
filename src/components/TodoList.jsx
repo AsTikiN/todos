@@ -20,8 +20,10 @@ const TodoList = () => {
   return ( 
     <TodoListStyled> 
       {
-        filteredTodos.map((todo, index) => {
-          return <TodoItem key = {todo.id} item = {todo} index = {index}/>
+        todos.map((todo, index) => {
+          if(todo.status === currentFilter || !currentFilter) {
+            return <TodoItem key = {todo.id} item = {todo} index = {index}/>
+          }
         })
       }
       {
